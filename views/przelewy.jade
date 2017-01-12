@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  #content
+    form(method="post")
+      select( name="z_rachunku", placeholder="z rachunku")
+        option(value="", disabled, selected) Z rachunku
+        option(value=rachunek) #{rachunek}
+        option(value=rachunek_oszczednosciowy) #{rachunek_oszczednosciowy}
+      input(type="text", name="rachunek", placeholder="na rachunek")
+      input(type="number", name="kwota", placeholder="kwota")
+      input(type="text", name="tytul", placeholder="tytuł przelewu")
+    button#wyslij.button1
+       a Wyślij Przelew
+  script(type="text/javascript").
+      function przetwarzaj_dane (){
+            var error=false;
+            var formularz=document.forms[0];
+            var napis="";
+            
+            if (formularz.rachunek.value==""){
+              napis += "proszę uzupełnić na jaki rachunek będzie przelew \n"
+              error=true;
+            }
+            if (formularz.kwota.value==""){
+              napis += "proszę uzupełnić jaka kwota ma być wysłana \n"
+              error=true;
+            }
+            if (formularz.tytul.value == ""){
+              napis += "proszę uzupełnić tytuł przelewu\n"
+              error=true;
+            }
+            
+            if (!error)
+              formularz.submit();
+            else
+              alert (napis);
+      }
+      document.getElementById("wyslij").addEventListener("click",przetwarzaj_dane);

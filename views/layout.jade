@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+  #header
+    a(href="profile")  CREDIT BANK
+    #profile
+      p Witaj #{imie} #{nazwisko}
+      p Ostatnie udane logowanie:
+      p #{logowanie}
+      
+    button.button1(onclick="window.location.href='/wyloguj'")
+      a Wyloguj        
+  
+  #nav
+    ul
+      li
+        a(href="rachunki") Rachunki
+      li
+        a(href="przelewy") Przelewy
+      li
+        a(href="powiadomienia") Powiadomienia
+      li
+        a(href="karty") Karty debetowe
+      li
+        a(href="konto_oszczednosciowe") Konto oszczędnościowe  
+        
+  block content

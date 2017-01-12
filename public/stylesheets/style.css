@@ -1,0 +1,412 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: white;
+  margin: 0;
+  overflow: hidden;
+}
+/*
+#F18E79
+#F4A390
+#D59397
+#CA7B80
+#9E6075
+#795877
+#8D607F
+#C39CA5
+#8F8CA1
+#7688B0
+#028DC4
+#63678D
+#494365
+*/
+.transparent{
+  display: none;
+}
+#wiadomosc{
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background-color:white;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border: #7688B0 10px solid;
+}
+
+#wiadomosc>button {
+  border: 2px solid #fff;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  font-size: 30px;
+  padding: 10px;
+}
+
+#wiadomosc>h1{
+  margin: 20px;
+  text-align: center;
+}
+
+#wiadomosc>p{
+  margin: 20px;
+}
+
+#content {
+  position: absolute;
+  top:250px;
+  width: 100%;
+  height: 450px;
+  overflow-y: scroll;
+}
+
+#content>table button{
+  border: 3px solid #C39CA5;
+  background-color: #494365;
+  color: white;
+  padding: 10px;
+}
+
+#content>table button:hover{
+  background-color: #63678D;
+}
+
+#content>form{
+  position: absolute;
+  background-color:#028DC4;
+  width: 500px;
+  height: 400px;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 10px;
+  border-width: 5px;
+  border-color: #494365;
+  border-style: solid;
+  text-align: center;
+}
+#content>form>select{
+  border: none;
+  width:420px;
+  height: 35px;
+  margin: 15px;
+  padding: 5px;
+  margin-top: 30px;
+}
+#content>form>input{
+  border: none;
+  width:400px;
+  height: 25px;
+  margin: 15px;
+  padding: 5px;
+}
+#content>#wyslij{
+  position: absolute;
+  border: none;
+  width:400px;
+  margin: auto;
+  padding: 5px;
+  height: 50px;
+  z-index: 9999;
+  bottom: 50px;
+  left:0;
+  right: 0;
+}
+#content>table{
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: auto;
+  width: 90vw;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+#content>table tr:first-child{
+  color:white;
+  font-weight: bold;
+}
+
+#content>table tr:first-child td{
+  background-color: #F18E79 !important;
+  border: #494365 2px solid;
+}
+
+#content>table tr td:nth-of-type(2n+1){
+  background-color: #8F8CA1;
+}
+
+#content>table.powiadomienia td{
+  border: #494365 2px solid;
+}
+
+#content>table.powiadomienia button{
+  width: 90%;
+}
+#content>table.powiadomienia button.przeczytane{
+  border-radius: 5px;
+  border: none;
+}
+
+#finanse {
+  background-color: #BCB8D4;
+  margin: 20px;
+  margin-left: 5vw;
+  width: 220px;
+  height: 150px;
+  padding: 20px;
+}
+
+#finanse p:last-child{
+  border-top: 2px;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-color: #63678D;
+  border-style: solid;
+  padding-top: 10px;
+}
+
+#finanse>h1{
+  margin-top: 0;
+}
+
+#informacje>h1{
+  margin-top: 0;
+}
+
+#informacje table{
+  margin: auto;
+  border-collapse: collapse;
+  width: 250px;
+}
+
+
+#powiadomienia, #informacje {
+  background-color:#D59397;
+  margin: 20px;
+  margin-left: 5vw;
+  width: 220px;
+  height: 150px;
+  padding: 20px;
+}
+
+#powiadomienia>button, #informacje>button{
+  border-top: 2px;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 2px;
+  border-color: #9E6075;
+  border-style: solid;
+  background: transparent;
+  width: 230px;
+}
+
+#powiadomienia>button>p{
+  color:black;
+}
+
+#powiadomienia>button>p:last-child{
+  position: relative;
+  left:50px;
+  bottom: 15px;
+}
+
+#powiadomienia>button>p:first-of-type{
+  position: relative;
+  top: 15px;
+  right: 50px;
+}
+
+#transakcje{
+  position: absolute;
+  top:0;
+  right: 5vw;
+  width: 55vw;
+  height: 400px;
+  margin: 20px;
+}
+
+#transakcje>div {
+  position: relative;
+  height: 300px;
+}
+
+#transakcje>div>canvas{
+  position: relative;
+  height: 400px;
+  width:300px;
+}
+
+#header{
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  background-color: #C39CA5;
+}
+
+#header>a{
+  position: relative;
+  top:30px;
+  left:20px;
+  text-decoration: underline;
+  color: black;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#header>button{
+  position: absolute;
+  top:50px;
+  right: 50px;
+  border-width: 2px;
+  border-style: solid;
+  width: 150px;
+  height: 50px;
+}
+
+#profile{
+  position: absolute;;
+  background-color: #8D607F;
+  padding: 10px;
+  width: 200px;
+  right: 250px;
+  top:7px;
+}
+
+#profile p{
+  color: white;
+}
+
+#profile p:first-child{
+  font-size: 15px;
+  font-weight: bold;
+}
+
+#nav{
+  position: absolute;
+  top:160px;
+  background-color: #9E6075;
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  padding-right: 0px;
+}
+
+#nav>ul {
+    list-style-type: none;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    margin-top: 10px;
+}
+
+#nav li {
+  float:left;
+}
+
+#nav li a {
+    display: block;
+    padding: 8px 25px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border-style: solid;
+    border-color: white;
+    border-width: 0px 1px 0px 0px;
+    font-family: monospace;
+    font-weight: 900;
+    font-size: 15px;
+}
+
+#nav li:last-child a{
+  border: none;
+}
+
+#nav li a:hover {
+  background-color: #F18E79;
+  font-size: 17px;
+}
+
+h1.login{
+  background-color: #C39CA5;
+  padding: 20px;
+}
+
+div.login{
+  position: absolute;
+  background-color:#028DC4;
+  width: 500px;
+  height: 300px;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 10px;
+  border-width: 5px;
+  border-color: #494365;
+  border-style: solid;
+  text-align: center;
+}
+
+button a{
+  text-decoration: none;
+  color: white;
+}
+
+div.login input{
+  border: none;
+  width:400px;
+  height: 50px;
+  margin: 20px;
+  padding: 5px;
+}
+
+div.login button{
+  border: none;
+  width:400px;
+  height: 50px;
+  margin: 20px;
+  padding: 5px;
+}
+
+.button1{
+  background-color:#F4A390 !important;
+  color:white;
+  font-size: 25px;
+}
+
+.button1:hover{
+  background-color:#F4BFB2 !important;
+}
+
+.button1:active{
+  background-color:#F4BFB2 !important;
+}
+
+.button2{
+  background-color:#795877 !important;
+  color:white;
+  font-size: 15px;
+}
+
+.button2:hover{
+  background-color:#F4BFB2 !important;
+}
+
+.button2:active{
+  background-color:#F4BFB2 !important;
+}
+
+p.error{
+  color: red;
+  font-size: 20px;
+  text-align: center;
+}

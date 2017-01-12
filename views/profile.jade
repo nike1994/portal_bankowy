@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  #content
+    #finanse
+      h1 Rachunki 
+      p saldo:
+      p #{saldo}PLN
+      
+    #powiadomienia
+      h1 Powiadomienia
+      button(onclick="window.location.href='/powiadomienia'")
+          div.message 
+          p Wiadomości 
+          -if(wiadomosci)
+            p #{wiadomosci} NOWE
+          -else  
+            p &nbsp
+    #transakcje
+      h1 Ostatnie transakcje
+      div
+        canvas(id="wykres",style="height:300px")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js")
+  script(src="javascripts/wykres.js")
+  script(type="text/javascript").
+    /*var daty=["11-05-2016", "31-05-2016", "10-06-2016", "16-06-2016"]
+    var wydatki= [-200, 200, 400,-600, 800]
+    var tytuly=["wypłata z bankomatu","wpłata", "wpłata","wypłata"]*/
+    var daty=[];
+    var wydatki=[];
+    var tytuly=[];
+    var transakcje= !{JSON.stringify(transakcje)}
+    for(var i=0; i<transakcje.length && i<5 ;i++){
+      daty.push(transakcje[i].data);
+      wydatki.push(parseFloat(transakcje[i].saldo)+parseFloat(transakcje[i].kwota));  
+      tytuly.push(transakcje[i].tytul);
+    }
+    
+    
+    rysuj_wykres(daty,wydatki,tytuly);

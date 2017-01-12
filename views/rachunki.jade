@@ -1,0 +1,33 @@
+extends layout
+
+block content
+    
+  #content
+    table
+      tr
+        td
+          p Data
+        td
+          p Nazwa odbiorcy/nadawcy
+        td
+          p Rachunek
+        td 
+          p Tytuł płatności
+        td
+          p Kwota 
+        td 
+          p Saldo księgowe
+      -each val in rachunek.transakcje
+        tr
+          td
+            p=val.data
+          td
+            p=val.nazwa_odbiorcy
+          td
+            p=rachunek.numer
+          td 
+            p=val.tytul
+          td
+            p=val.kwota
+          td 
+            p=val.saldo

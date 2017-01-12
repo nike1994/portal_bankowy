@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    h1.login  CREDIT BANK
+    p.error #{error}
+    .login
+        form(method="post")
+          input(name="login", type="text", placeholder="login")
+          input(name="password", type="password",placeholder="hasło")
+        button.button1#wyslij
+          a zaloguj
+        
+    script(type="text/javascript").
+        function przetwarzaj_dane (){
+              var error=false;
+              var formularz=document.forms[0];
+              var napis="";
+              
+              if (formularz.login.value==""){
+                napis += "proszę uzupełnić login \n"
+                error=true;
+              }
+              if (formularz.password.value==""){
+                napis += "proszę uzupełnić hasło \n"
+                error=true;
+              }
+              if (!error)
+                formularz.submit();
+              else
+                alert (napis);
+        }
+        document.getElementById("wyslij").addEventListener("click",przetwarzaj_dane);

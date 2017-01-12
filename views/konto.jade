@@ -1,0 +1,46 @@
+extends layout
+
+block content
+  #content
+    #finanse
+      h1 Rachunek oszczędnościowy
+      p saldo:
+      p #{rachunek.saldo} PLN
+      
+    #informacje
+      h1 Informacje
+      div
+        table
+          tr
+            td
+              p  oprocentowanie
+            td
+              p=rachunek.oprocentowanie.procent
+          tr
+            td
+              p częstotliwość
+            td
+              p=rachunek.oprocentowanie.czestotliwosc
+        
+    #transakcje
+      h1 Ostatnie transakcje
+      div
+        canvas(id="wykres",style="height:300px")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js")
+    script(src="javascripts/wykres.js")
+    script(type="text/javascript").
+      /*var daty=["11-05-2016", "31-05-2016", "10-06-2016", "31-06-2016"]
+      var wydatki= [200, 250, 400,450, 800]
+      var tytuly=["wpłata","oprocentowanie", "wpłata","oprocentowanie"]*/
+        var daty=[];
+        var wydatki=[];
+        var tytuly=[];
+        var transakcje= !{JSON.stringify(rachunek.transakcje)};
+        
+        for(var i=0; i<transakcje.length && i<5 ;i++){
+          daty.push(transakcje[i].data);
+          wydatki.push(parseFloat(transakcje[i].saldo)+parseFloat(transakcje[i].kwota));  
+          tytuly.push(transakcje[i].tytul);
+        }
+        
+        rysuj_wykres(daty,wydatki,tytuly);

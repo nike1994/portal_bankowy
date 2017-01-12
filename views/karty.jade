@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  #content
+    table 
+      tr 
+        td
+          p numer karty
+        td
+          p status
+        td
+      -for(var i=0;i<karty.length;i++)
+        tr
+          td
+            p=karty[i].id
+          -if(karty[i].status=="aktywna")
+            td
+              p aktywna
+            td
+              button(id=i class="przycisk")
+                a zastrzeż
+          -else
+            td
+              p zastrzeżona
+  script(type="text/javascript").  
+      var buttons=document.getElementsByClassName("przycisk");
+      var karty = !{JSON.stringify(karty)};
+      
+      for(var i=0; i<buttons.length; i++){
+        buttons[i].addEventListener("click",function(element){
+           var w=parseInt(element.target.id)
+          
+           var xhttp = new XMLHttpRequest();
+             xhttp.open("POST", document.URL , true);
+             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+             xhttp.send("karta="+karty[w].id);
+             xhttp.onreadystatechange= function(){
+               if(xhttp.readyState ==4 && xhttp.status==200){
+                 element.target.parentNode.parentNode.children[1].childNodes[0].innerHTML="zastrzeżona";
+                 element.target.parentNode.parentNode.removeChild(element.target.parentNode);
+               }
+             }; 
+         });
+      }
+      
