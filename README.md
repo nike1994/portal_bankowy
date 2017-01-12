@@ -19,4 +19,5 @@ localhost:3000
 przykładowi użytkownicy
 
 >login: osoba1 hasło:123456
+
 >login: osoba2 hasło:123456
